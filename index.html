@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack</title>
+</head>
+<body>
+    <form id="form" name="Form">
+        text: <input type="text" id="box">
+        <input type="submit" value="Submit">
+      </form>
+    <div id="output"></div>
+    
+    <script>
+     //   document.getElementById("output").innerHTML = "TEST" + "<br>";
+
+        //console.log("1");
+
+        // Här implementear jag Stack
+        function Stack(array){
+            this.array = [];
+            if (array) this.array = array;
+            //console.log("2");
+        }
+        
+        Stack.prototype.getBuffer = function() {
+            return this.array.slice();
+        }
+
+        Stack.prototype.peak = function(){
+            return this.array[this.array.length -1];
+            //console.log("peak");
+        }
+        
+        Stack.prototype.pop = function(){
+            return this.array.pop();
+            //console.log("pop");
+        }
+
+        Stack.prototype.push = function(value){
+            this.array.push(value);
+            //console.log("push");
+        }
+
+        Stack.prototype.isEmpty = function() {
+            return this.array.length == 0;
+        }
+
+        function stackSearch(s, element){
+            var bufferArray = s.getBuffer();
+
+            var bufferStack = new Stack(bufferArray)
+
+            while (!bufferStack.isEmpty()){
+                if(bufferStack.pop() == element){
+                    return true;
+                }
+                //console.log("i");
+            }
+            return false;
+
+        }
+
+        var minstack = new Stack([]);
+
+        minstack.push("Hej");
+        minstack.push("Hopp");
+        minstack.push("Hej 2");
+        minstack.push("Hopp 2");
+
+        //console.log("5");
+
+document.getElementById("output").innerHTML += minstack.push(document.getElementById("box").value) + "<br>";
+
+
+/*
+for(let i = 0; i < minstack.length; i++) {
+        console.log(minstack[i]);
+        document.write(minstack)
+}
+*/
+
+/*
+<form onsubmit="return add()">
+            <input type="text" id="box">
+            <input type="submit" value="Submit">
+           </form>
+           <div id="output"></div>
+
+var items = [];
+
+function add() {
+  boxvalue = document.getElementById('box').value;
+  items.push(boxvalue);  
+  console.log(items);
+}
+
+
+items.push("sad")
+console.log(items);
+
+document.getElementById("output").innerHTML += items.push("sad") +  "<br>";
+*/
+/*
+        var minstack = new Stack([]);
+        var value1 = document.getElementById("box").value; 
+        minstack.push(value1)
+
+       document.getElementById("output").innerHTML += minstack.push(value1) +  "<br>";
+
+        console.log(minstack)
+*/        
+/*
+        <form onsubmit="return func">
+            Enter stack value: <input type="text" id="box"><br>
+            <input type="submit" value="Submit">
+    </form>
+
+ */
+       /*
+        function func() {
+             boxvalue = document.getElementById('box').value;
+             minstack.push(boxvalue);
+            console.log(minstack);
+            return false; // stop submission
+}
+       
+       console.log(minstack)
+
+        */
+        /*var value1 = document.getElementById("box").value; 
+        minstack.push(value1)
+
+        document.getElementById("output").innerHTML += minstack.push(value1) +  "<br>";
+        console.log(minstack[0])
+        console.log(value1)
+        */
+
+
+        //document.getElementById("output").innerHTML += minstack.pop() + "<br>";
+
+
+
+
+        //document.getElementById("output").innerHTML += stackSearch(minstack, "Hej 21") +"<br>";;
+
+        //console.log("5");
+        //document.getElementById("output").innerHTML += minstack.pop() + "<br>";
+        //document.getElementById("output").innerHTML += minstack.pop() +  "<br>";
+
+
+/*
+    var items = [];
+
+    function func() {
+     boxvalue = document.getElementById('box').value;
+     items.push(boxvalue);
+     console.log(items);
+    return false; // stop submission
+}
+*/
+
+
+    </script>
+</body>
+</html>
